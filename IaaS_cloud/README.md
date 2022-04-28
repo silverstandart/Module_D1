@@ -44,9 +44,9 @@ docker swarm join --token SWMTKN-1-3dyyc0jdp557440vmmcsylrjrgqpn4bnj67eqk0grw1nq
 
 
 #### 2.2. Create 2 Worker Nodes
-Run result command from **Create Manager Node** on vm2 and vm3
+Run result command from **2.1. Create Manager Node** on vm2 and vm3
 
-
+```sh
 rem execute this in machine external_ip_address_vm2
 ssh.exe -i infodba_key infodba@<external_ip_address_vm2> -o "StrictHostKeyChecking no"
 sudo <docker swarm join command above>
@@ -56,9 +56,12 @@ rem execute this in machine external_ip_address_vm3
 ssh.exe -i infodba_key infodba@<external_ip_address_vm3> -o "StrictHostKeyChecking no"
 sudo <docker swarm join command above>
 exit
+```
 
+### 3. Deploy Socks Microservices into Swarm Cluster
+Execute this in **Manager Node external_ip_address_vm1**
 
-rem execute this in machine external_ip_address_vm1
+```sh
 ssh.exe -i infodba_key infodba@<external_ip_address_vm1> -o "StrictHostKeyChecking no" 
 sudo docker node ls
 git clone https://github.com/silverstandart/Module_D1.git
@@ -67,9 +70,12 @@ sudo chmod 777 1_run.sh
 sed -i -e 's/\r$//' 1_run.sh
 ./1_run.sh
 sudo docker service ls
+```sh
 
 rem now site available in http://<external_ip_address_vm1> from any machine
 
 
-rem uninstallation
+### 4. Uninstallation
+```sh
 2_IaaS_destroy.bat
+```
