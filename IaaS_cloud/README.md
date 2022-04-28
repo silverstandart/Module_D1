@@ -1,7 +1,7 @@
 
-## Module_D1.7_IaaS_Report
+# Module_D1.7_IaaS_Report
 
-### 1.	Prerequisites
+## 1.	Prerequisites
 Before running script **1_IaaS_run.bat** please fill variables in **0_Iaas_variables.bat** and run command 
 
 ```sh
@@ -13,7 +13,7 @@ Modify **0_Iaas_variables.bat** accordingly your Yandex cloud environment. What 
 * cloud id
 * folder id
 
-### 2. Create Infrastructure in Yandex Cloud
+## 2. Create Infrastructure in Yandex Cloud
 
 ```sh
 1_IaaS_run.bat
@@ -30,7 +30,7 @@ internal_ip_address_vm2 = "192.168.10.9"
 internal_ip_address_vm3 = "192.168.10.27"
 ```
 
-#### 2.1. Create Manager Node
+### 2.1. Create Manager Node
 Execute this in machine **external_ip_address_vm1**
 ```sh
 cd processing_folder
@@ -43,7 +43,7 @@ docker swarm join --token SWMTKN-1-3dyyc0jdp557440vmmcsylrjrgqpn4bnj67eqk0grw1nq
 ```
 
 
-#### 2.2. Create 2 Worker Nodes
+### 2.2. Create 2 Worker Nodes
 Run result command from **2.1. Create Manager Node** on vm2 and vm3
 
 ```sh
@@ -58,7 +58,7 @@ sudo <docker swarm join command above>
 exit
 ```
 
-### 3. Deploy Socks Microservices into Swarm Cluster
+## 3. Deploy Socks Microservices into Swarm Cluster
 Execute this in **Manager Node external_ip_address_vm1**
 
 ```sh
@@ -70,12 +70,12 @@ sudo chmod 777 1_run.sh
 sed -i -e 's/\r$//' 1_run.sh
 ./1_run.sh
 sudo docker service ls
-```sh
+```
 
 rem now site available in http://<external_ip_address_vm1> from any machine
 
 
-### 4. Uninstallation
+## 4. Uninstallation
 ```sh
 2_IaaS_destroy.bat
 ```
