@@ -1,5 +1,11 @@
-rem Before running script 1_IaaS_run.bat please fill variables in 0_Iaas_variables.bat and run command 
+
+##Module_D1.7_IaaS_Report
+
+###1.	Prerequisites
+Before running script **1_IaaS_run.bat** please fill variables in **0_Iaas_variables.bat** and run command 
+```sh
 yc config set token <your yandex cloud token id>
+```
 
 rem modify 0_Iaas_variables.bat accordingly your Yandex cloud environment. What are needed:
 service account name
@@ -51,3 +57,4 @@ rem now site available in http://<external_ip_address_vm1> from any machine
 
 rem uninstallation
 2_IaaS_destroy.bat
+
