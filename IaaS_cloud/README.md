@@ -13,14 +13,13 @@ Modify **0_Iaas_variables.bat** accordingly your Yandex cloud environment. What 
 * cloud id
 * folder id
 
-### 2. Create Infrastructure
-Yandex Cloud run 
+### 2. Create Infrastructure in Yandex Cloud
 
 ```sh
 1_IaaS_run.bat
 ```
 
-As a result you can get these machines
+As a result you can get these machines (as example)
 ```sh
 external_ip_address_vm1 = "51.250.88.39"
 external_ip_address_vm2 = "51.250.87.203"
@@ -31,13 +30,22 @@ internal_ip_address_vm2 = "192.168.10.9"
 internal_ip_address_vm3 = "192.168.10.27"
 ```
 
-rem execute this in machine external_ip_address_vm1
+#### 2.1. Create Manager Node
+Execute this in machine **external_ip_address_vm1**
+```sh
 cd processing_folder
 ssh.exe -i infodba_key infodba@<external_ip_address_vm1> -o "StrictHostKeyChecking no" 
 sudo docker swarm init --advertise-addr <internal_ip_address_vm1>:2377
+```
+as a result I got this command
+```sh
+docker swarm join --token SWMTKN-1-3dyyc0jdp557440vmmcsylrjrgqpn4bnj67eqk0grw1nqugv7i-4q1u4ev6j2e9y7c9quic1xj0b 192.168.10.23:2377
+```
 
-rem as a result you will get something like this and it is <docker swarm join command above>
-rem docker swarm join --token SWMTKN-1-3dyyc0jdp557440vmmcsylrjrgqpn4bnj67eqk0grw1nqugv7i-4q1u4ev6j2e9y7c9quic1xj0b 192.168.10.23:2377
+
+#### 2.2. Create 2 Worker Nodes
+Run result command from **Create Manager Node** on vm2 and vm3
+
 
 rem execute this in machine external_ip_address_vm2
 ssh.exe -i infodba_key infodba@<external_ip_address_vm2> -o "StrictHostKeyChecking no"
