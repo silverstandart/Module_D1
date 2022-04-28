@@ -1,6 +1,8 @@
 
 # Module_D1.7_IaaS_Report
 
+[More detailed instruction](https://github.com/silverstandart/Module_D1/blob/main/Module_D1.7_IaaS_Report.pdf)
+
 ## 1.	Prerequisites
 Before running script **1_IaaS_run.bat** please fill variables in **0_Iaas_variables.bat** and run command 
 
@@ -76,6 +78,7 @@ rem now site available in http://<external_ip_address_vm1> from any machine
 
 
 ## 4. Uninstallation
+Type yes while running 
 ```sh
 2_IaaS_destroy.bat
 ```
