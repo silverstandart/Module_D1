@@ -3,25 +3,33 @@
 
 ### 1.	Prerequisites
 Before running script **1_IaaS_run.bat** please fill variables in **0_Iaas_variables.bat** and run command 
+
 ```sh
 yc config set token <your yandex cloud token id>
 ```
 
-rem modify 0_Iaas_variables.bat accordingly your Yandex cloud environment. What are needed:
-service account name
-cloud id
-folder id
+Modify **0_Iaas_variables.bat** accordingly your Yandex cloud environment. What are needed:
+* service account name
+* cloud id
+* folder id
 
-rem To create Infrastructure in Yandex Cloud run 
+### 2. Create Infrastructure
+Yandex Cloud run 
+
+```sh
 1_IaaS_run.bat
+```
 
-rem as a result you can get these machines
+As a result you can get these machines
+```sh
 external_ip_address_vm1 = "51.250.88.39"
 external_ip_address_vm2 = "51.250.87.203"
 external_ip_address_vm3 = "51.250.82.38"
+
 internal_ip_address_vm1 = "192.168.10.23"
 internal_ip_address_vm2 = "192.168.10.9"
 internal_ip_address_vm3 = "192.168.10.27"
+```
 
 rem execute this in machine external_ip_address_vm1
 cd processing_folder
