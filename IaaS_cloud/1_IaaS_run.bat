@@ -31,6 +31,7 @@ more %AND5_yc_cloud_access_key_file%
 
 
 rem --------------------------------------------------------------------- access into virtual machines in cloud
+
 del %AND5_processing_location%\infodba_key
 del %AND5_processing_location%\infodba_key.pub
 
@@ -41,14 +42,8 @@ echo AND5_yc_vm_rsa  %AND5_yc_vm_rsa%
 xcopy /Y %AND5_origin_location%\50_infodba_config_template.yml %AND5_processing_location%\infodba_config.yml* 
 cscript %AND5_origin_location%\replace.vbs %AND5_processing_location%\infodba_config.yml "@AND5_yc_vm_rsa@" "%AND5_yc_vm_rsa%"
 
+rem --------------------------------------------------------------------- Insfratructure creation
 
-echo ---------------------------------------------------------------------
-set str=%AND5_origin_location%\infodba_key.pub 
-echo %str% 
-
-set str=%str:\=/% 
-echo %str%
-echo ---------------------------------------------------------------------
 set AND5_yc_cloud_access_key_file=%AND5_yc_cloud_access_key_file:\=/%
 
 set AND5_yc_vm_ssh_user_key_file="%AND5_processing_location%\infodba_key.pub"
