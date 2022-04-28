@@ -34,6 +34,8 @@ exit
 rem execute this in machine external_ip_address_vm1
 ssh.exe -i F:/DEV_HOME/Terraform_Projects/D1_7/processing_folder/infodba_key infodba@51.250.83.240 -o "StrictHostKeyChecking no" 
 sudo docker node ls
+git clone https://github.com/silverstandart/Module_D1.git ./Module_D1
+cd ./Module_D1/IaaS_socks/
 sudo chmod 777 1_run.sh
 sed -i -e 's/\r$//' 1_run.sh
 ./1_run.sh
